@@ -142,12 +142,8 @@
 
       <!-- discussion section -->
       <section class="container mx-auto w-11/12 lg:w-10/12 my-12 lg:my-24">
-        <div
-          class="flex lg:w-2/5 mx-auto flex-col items-center justify-center space-y-8 lg:my-12"
-        >
-          <h2 class="text-3xl lg:text-5xl font-bold text-center">
-            Let's Discuss
-          </h2>
+        <div class="flex lg:w-2/5 mx-auto flex-col items-center justify-center space-y-8 lg:my-12">
+          <h2 class="text-3xl lg:text-5xl font-bold text-center">Let's Discuss</h2>
           <p class="opacity-60 text-center lg:text-xl">
             With the modern design and the latest features, you can discuss
             whatever you want and see other people's opinions or discussions,
@@ -158,8 +154,6 @@
         <div class="flex lg:flex-row flex-col gap-8 my-12">
           <div id="post-container" class="lg:w-8/12 space-y-5">
  <!-- demo card showing without dynamic value  -->
- 
-
 
             <div class="flex w-full justify-center">
               <span
@@ -167,19 +161,14 @@
                 class="loading loading-spinner loading-lg lg:mt-24 text-primary hidden"
               ></span>
             </div>
-            <!-- dynamic content -->
+          <!-- dynamic content -->
           </div>
           <div class="lg:w-4/12">
-            <div class="p-6 space-y-4 bg-[#F3F3F5] rounded-3xl">
-              <div class="flex items-center justify-between">
-                <h4 class="font-bold text-xl">Title</h4>
-                <p class="opacity-50">
-                  <i class="fa-solid fa-check-double text-green-500"></i> Mark
-                  as read (<span id="markAsReadCounter">0</span>)
-                </p>
-              </div>
+            <div id="countDiv" class="p-6 space-y-4 bg-[#F3F3F5] rounded-3xl">
+                <h2 class="text-xl font-semibold text-gray-400">Count: <span id="h2">0</span></h2>
+  
               <div class="space-y-4 *:opacity-70" id="markAsReadContainer">
-                <!-- dynamic content -->
+          <!-- dynamic content -->
 
                 
 
@@ -189,7 +178,7 @@
         </div>
       </section>
 
-      <!-- forum section
+       <!-- forum section -->
       <section class="container mx-auto lg:w-10/12 w-11/12 my-8 lg:my-12">
         <div
           class="lg:p-16 rounded-3xl *:text-white bg-[#12132D] p-6 flex flex-col-reverse lg:flex-row justify-center items-center gap-8"
@@ -210,55 +199,22 @@
             <img src="./images/joinforum.png" alt="form image" />
           </div>
         </div>
-      </section> -->
+      </section> 
 
       <!-- latest post section -->
       <section class="container mx-auto lg:w-10/12 w-11/12 *:text-center lg:my-18 my-8">
-        <!-- <div class="flex lg:w-2/5 mx-auto flex-col items-center justify-center p-4 space-y-4">
+        <div class="flex lg:w-2/5 mx-auto flex-col items-center justify-center p-4 space-y-4">
           <h2 class="font-extrabold text-2xl lg:text-5xl">Latest Posts</h2>
           <p class="opacity-60">
             Got mind blowing ideas? Share with us and get the latest updates and
             news too from our forum.
           </p>
-        </div> -->
+        </div>
         <div
           id="latest-post-container"
           class="flex gap-5 lg:flex-row flex-col items-center justify-evenly"
         >
-         <!-- show latest post in span tag wihtout dynamic value  -->
-         <div class="card lg:w-96 pb-5 bg-base-100 shadow-2xl">
-          <figure class="lg:px-6 px-4 pt-4 lg:pt-8">
-              <img
-                  src=${e.cover_image}
-                  alt="Shoes"
-                  class="rounded-xl"
-              />
-          </figure>
-          <div class="p-5 lg:p-10 space-y-4 lg:space-y-5">
-              <p class="opacity-50 text-start">
-                  <i class="fa-solid fa-calendar-days me-2"></i>author?.posted_date || "No Publish Date"
-              </p>
-              <h2 class="card-title text-start">title</h2>
-              <p class="text-start">
-                  description
-              </p>
-              <div class="card-actions flex gap-5 items-center">
-                  <div class="avatar">
-                      <div
-                          class="lg:w-12 w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
-                      >
-                          <img
-                          src=${e.profile_image}
-                          />
-                      </div>
-                  </div>
-              <div>
-              <h3 class="text-start font-extrabold">author.name</h3>
-              <p class="text-start opacity-60">author?.designation || "Unknown"</p>
-          </div>
-      </div>
-        
-
+         
           <span
             id="latestPostLoader"
             class="loading loading-infinity loading-lg lg:mt-24 text-primary hidden"
