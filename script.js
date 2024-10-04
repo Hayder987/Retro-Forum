@@ -85,48 +85,52 @@ const displayLatestPost=(NewPost)=>{
 const displayData = (posts)=>{
  const postContainer = document.getElementById("post-container");
  postContainer.innerHTML = "";
-    posts.map(item=>{
-      let cardDiv = document.createElement("div");
-      cardDiv.classList.add("bg-gray-200", "p-6", "rounded-xl" ,"flex", "gap-20")
-      cardDiv.innerHTML =`
-        <div class="w-1/12">
-           <div class="p-12 bg-white rounded-xl relative">
-           ${item.isActive===true ? `<div class="h-4 w-4 absolute top-0 right-0 bg-green-500 rounded-full"></div>`:
-            `<div class="h-4 w-4 absolute top-0 right-0 bg-red-500 rounded-full"></div>`
-           }       
-           </div> 
-        </div>
-        <div class="taxDiv w-11/12">
-           <div class="flex gap-12 font-bold mb-2 text-gray-500">
-             <p>#${item.category}</p>
-             <p>author: ${item.author.name}</p>
-           </div>
-           <div class="mb-2">
-             <h1 class="text-xl font-bold">${item.title}</h1>
-           </div>
-           <div class="border-b pb-4 mb-3 border-gray-400 border-dashed">
-             <p class="text-gray-500 ">${item.description}</p>
-           </div>
-           <div class="flex justify-between">
-              <div class="flex gap-4 md:gap-12">
-                <p class="flex gap-4 items-center text-gray-500">
-                  <span><i class="fa-regular fa-comment-dots"></i></span> <span>${item.comment_count}</span>
-                </p>
-                <p class="flex gap-4 items-center text-gray-500">
-                  <span><i class="fa-regular fa-eye"></i></span> <span>${item.view_count}</span>
-                </p>
-                <p class="flex gap-4 items-center text-gray-500">
-                  <span><i class="fa-regular fa-clock"></i></span> <span>${item.posted_time} min</span>
-                </p>
+    setTimeout(()=>{
+    
+      posts.map(item=>{
+        let cardDiv = document.createElement("div");
+        cardDiv.classList.add("bg-gray-200", "p-6", "rounded-xl" ,"flex", "gap-20")
+        cardDiv.innerHTML =`
+          <div class="w-1/12">
+             <div class="p-12 bg-white rounded-xl relative">
+             ${item.isActive===true ? `<div class="h-4 w-4 absolute top-0 right-0 bg-green-500 rounded-full"></div>`:
+              `<div class="h-4 w-4 absolute top-0 right-0 bg-red-500 rounded-full"></div>`
+             }       
+             </div> 
+          </div>
+          <div class="taxDiv w-11/12">
+             <div class="flex gap-12 font-bold mb-2 text-gray-500">
+               <p>#${item.category}</p>
+               <p>author: ${item.author.name}</p>
              </div>
-             <div class="p-2 w-10 h-10 rounded-full text-center bg-green-500">
-              <button onclick="displayCount('${item.title}','${item.view_count}')" class="text-white"><i class="fa-solid fa-envelope-open"></i></button>
+             <div class="mb-2">
+               <h1 class="text-xl font-bold">${item.title}</h1>
              </div>
-           </div>
-        </div>
-      `
-     postContainer.appendChild(cardDiv);
-    })
+             <div class="border-b pb-4 mb-3 border-gray-400 border-dashed">
+               <p class="text-gray-500 ">${item.description}</p>
+             </div>
+             <div class="flex justify-between">
+                <div class="flex gap-4 md:gap-12">
+                  <p class="flex gap-4 items-center text-gray-500">
+                    <span><i class="fa-regular fa-comment-dots"></i></span> <span>${item.comment_count}</span>
+                  </p>
+                  <p class="flex gap-4 items-center text-gray-500">
+                    <span><i class="fa-regular fa-eye"></i></span> <span>${item.view_count}</span>
+                  </p>
+                  <p class="flex gap-4 items-center text-gray-500">
+                    <span><i class="fa-regular fa-clock"></i></span> <span>${item.posted_time} min</span>
+                  </p>
+               </div>
+               <div class="p-2 w-10 h-10 rounded-full text-center bg-green-500">
+                <button onclick="displayCount('${item.title}','${item.view_count}')" class="text-white"><i class="fa-solid fa-envelope-open"></i></button>
+               </div>
+             </div>
+          </div>
+        `
+       postContainer.appendChild(cardDiv);
+      })
+
+    },1000);
     
 };
 
@@ -134,9 +138,16 @@ const displayData = (posts)=>{
 
 
 
-getAllPost();
+setTimeout(()=>{
+  getAllPost();
+  document.getElementById("postLoader").classList.add("hidden");
+},1000);
+
 getNewPost();
+
 const handleSearchByCategory=()=>{
     let inputValue = document.getElementById("searchPosts").value;
-    getAllPost(inputValue);
+    setTimeout(()=>{
+      getAllPost(inputValue);
+    },1000)
 }
